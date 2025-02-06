@@ -1,0 +1,7 @@
+D:\Extra\StringCompressor\bin\Debug\StringCompressor.exe.config
+D:\Extra\StringCompressor\bin\Debug\StringCompressor.exe
+D:\Extra\StringCompressor\bin\Debug\StringCompressor.pdb
+D:\Extra\StringCompressor\obj\Debug\StringCompressor.csproj.AssemblyReference.cache
+D:\Extra\StringCompressor\obj\Debug\StringCompressor.csproj.CoreCompileInputs.cache
+D:\Extra\StringCompressor\obj\Debug\StringCompressor.exe
+D:\Extra\StringCompressor\obj\Debug\StringCompressor.pdb
