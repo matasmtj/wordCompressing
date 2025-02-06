@@ -48,8 +48,6 @@ namespace StringCompressor
             string newWord = "";
             for (int i = 0; i < length; i=i+2) // it's known that every second char is a letter and the other is its count
             {
-                Console.WriteLine("Letter:" +word[i]);
-                Console.WriteLine("Number"+word[i+1]);
                 int charToInt = word[i + 1] - '0'; // since word[i+1] is taken as char from the word, to get its integer value you have to minus the '0' as char
                 for (int j = 0; j < charToInt; j++)//multpiplying the letter by its count
                 {
