@@ -49,9 +49,12 @@ namespace StringCompressor
         }
         private static StringBuilder WordDecompression(StringBuilder word)
         {
+
             StringBuilder newWord = new StringBuilder();
             StringBuilder number = new StringBuilder(); // number is the string of current (possibly multidigit) number
-           
+
+            if (word.Length == 0) return newWord;
+
             int currNumber, count;
             char lastLetter = word[0];
 
