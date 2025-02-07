@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO.Compression;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace StringCompressor
@@ -12,48 +13,64 @@ namespace StringCompressor
         static void Main(string[] args)
         {
             Console.WriteLine("Enter word:");
-            string word=Console.ReadLine();
-            string compressedWord = WordCompression(word);
+            string word = Console.ReadLine();
+            StringBuilder compressedWord = WordCompression(word);
             Console.WriteLine("Compressed word: " + compressedWord);
-            string decompressedWord=WordDecompression(compressedWord);
+            StringBuilder decompressedWord = WordDecompression(compressedWord);
             Console.WriteLine("Decompressed word: " + decompressedWord);
-        }
-        private static string WordCompression(string word) {
 
+        }
+
+        private static StringBuilder WordCompression(string word)
+        {
+
+            StringBuilder newWord = new StringBuilder();
             int length = word.Length;
-            if (length == 0) return word;
-            int count = 1; // var for counting repeating characters
-            string newWord="";
-            char prev=word[0]; //prev character
+            if (length == 0) return newWord;
+            int count = 1; // var for counting repeating characters            
+            char prev = word[0];
+
             for (int i = 1; i < length; i++) //cycling through the word
             {
-                if (word[i] == prev) count++; // if letter repeats, increase the counter
+                if (word[i] == prev)
+                    count++; // if letter repeats, increase the counter
                 else
                 {
-                    newWord = newWord + prev + count; // if letter changed, add it and its counter to the newWord
+                    newWord.Append(prev).Append(count);// if letter changed, add it and its counter to the newWord
                     prev = word[i];
                     count = 1;
                 }
             }
-            //checking the last letter
-            if (word[length-1] == prev) newWord = newWord + prev + count;
-                else newWord = newWord + word[length - 1] + 1;
+
+            //appending the last letter
+            newWord.Append(prev).Append(count);
 
             return newWord;
         }
-        private static string WordDecompression(string word)
+        private static StringBuilder WordDecompression(StringBuilder word)
         {
-            int length = word.Length;
-            if (length == 0) return word;
-            string newWord = "";
-            for (int i = 0; i < length; i=i+2) // it's known that every second char is a letter and the other is its count
+            StringBuilder newWord = new StringBuilder();
+            StringBuilder number = new StringBuilder(); // number is the string of current (possibly multidigit) number
+           
+            int currNumber, count;
+            char lastLetter = word[0];
+
+            for (int i = 1; i < word.Length; i++)
             {
-                int charToInt = word[i + 1] - '0'; // since word[i+1] is taken as char from the word, to get its integer value you have to minus the '0' as char
-                for (int j = 0; j < charToInt; j++)//multpiplying the letter by its count
+                // TryParse is used for safety
+                if (int.TryParse(word[i].ToString(), out currNumber))  // if current char is a number
                 {
-                    newWord += word[i];
+                    number.Append(currNumber);
+                }
+                else if (int.TryParse(number.ToString(), out count)) // if current char is a letter
+                {
+                    newWord.Append(lastLetter, count);
+                    number.Clear();
+                    lastLetter = word[i];
                 }
             }
+            int.TryParse(number.ToString(), out count);
+            newWord.Append(lastLetter, count);
 
             return newWord;
         }

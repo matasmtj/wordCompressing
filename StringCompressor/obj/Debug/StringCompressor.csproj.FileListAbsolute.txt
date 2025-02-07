@@ -5,3 +5,10 @@ D:\Extra\StringCompressor\obj\Debug\StringCompressor.csproj.AssemblyReference.ca
 D:\Extra\StringCompressor\obj\Debug\StringCompressor.csproj.CoreCompileInputs.cache
 D:\Extra\StringCompressor\obj\Debug\StringCompressor.exe
 D:\Extra\StringCompressor\obj\Debug\StringCompressor.pdb
+C:\Users\Matas\Documents\GitHub\wordCompressing\StringCompressor\bin\Debug\StringCompressor.exe.config
+C:\Users\Matas\Documents\GitHub\wordCompressing\StringCompressor\bin\Debug\StringCompressor.exe
+C:\Users\Matas\Documents\GitHub\wordCompressing\StringCompressor\bin\Debug\StringCompressor.pdb
+C:\Users\Matas\Documents\GitHub\wordCompressing\StringCompressor\obj\Debug\StringCompressor.csproj.AssemblyReference.cache
+C:\Users\Matas\Documents\GitHub\wordCompressing\StringCompressor\obj\Debug\StringCompressor.csproj.CoreCompileInputs.cache
+C:\Users\Matas\Documents\GitHub\wordCompressing\StringCompressor\obj\Debug\StringCompressor.exe
+C:\Users\Matas\Documents\GitHub\wordCompressing\StringCompressor\obj\Debug\StringCompressor.pdb
